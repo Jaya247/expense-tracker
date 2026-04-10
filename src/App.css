@@ -1,0 +1,240 @@
+/* ============================================
+   App Layout
+   ============================================ */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app__main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-base);
+}
+
+.app__main--expanded {
+  margin-left: var(--sidebar-collapsed);
+}
+
+.app__content {
+  padding: var(--space-xl);
+  padding-top: calc(var(--topbar-height) + var(--space-xl));
+  min-height: 100vh;
+}
+
+.app__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: none;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .app__main {
+    margin-left: 0;
+  }
+
+  .app__main--expanded {
+    margin-left: 0;
+  }
+
+  .app__content {
+    padding: var(--space-md);
+    padding-top: calc(var(--topbar-height) + var(--space-md));
+  }
+
+  .app__overlay {
+    display: block;
+  }
+}
+
+/* ============ Summary Cards ============ */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.summary-card {
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+.summary-card__label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.summary-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.summary-card__amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.summary-card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.summary-card__count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.summary-card__glow {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============ Category Donut Legend ============ */
+.category-donut__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.category-donut__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+}
+
+.category-donut__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.category-donut__legend-name {
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.category-donut__legend-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ============ Recent Transactions ============ */
+.recent-transactions__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-transactions__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast);
+}
+
+.recent-transactions__item:last-child {
+  border-bottom: none;
+}
+
+.recent-transactions__item:hover {
+  background: var(--bg-glass);
+  margin: 0 calc(-1 * var(--space-md));
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  border-radius: var(--radius-sm);
+}
+
+.recent-transactions__category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.recent-transactions__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.recent-transactions__desc {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-transactions__meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.recent-transactions__amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.recent-transactions__amount-value {
+  font-weight: 600;
+  color: var(--accent-rose);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.recent-transactions__payment {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}

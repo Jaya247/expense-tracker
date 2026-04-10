@@ -1,0 +1,253 @@
+/* ============================================
+   Settings Page Styles
+   ============================================ */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 800px;
+}
+
+/* Section */
+.settings__section {
+  padding: var(--space-lg);
+}
+
+.settings__section--danger {
+  border-color: rgba(251, 113, 133, 0.15);
+}
+
+.settings__section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.settings__section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.settings__section-header h3 {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.settings__section-header p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Items */
+.settings__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.settings__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.settings__item:last-child {
+  border-bottom: none;
+}
+
+.settings__item-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+  min-width: 0;
+}
+
+.settings__item-info > svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.settings__item-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.settings__item-desc {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Select */
+.settings__select {
+  width: auto;
+  min-width: 180px;
+  padding: 8px 32px 8px 12px;
+  font-size: 0.85rem;
+}
+
+/* Theme switch */
+.settings__theme-switch {
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3px;
+  border-radius: var(--radius-md);
+}
+
+.settings__theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.settings__theme-btn:hover {
+  color: var(--text-secondary);
+}
+
+.settings__theme-btn--active {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-glow-purple);
+}
+
+/* Data stats */
+.settings__data-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.settings__data-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+}
+
+.settings__data-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+}
+
+.settings__data-stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* Import */
+.settings__import-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+
+.settings__import-error {
+  font-size: 0.75rem;
+  color: var(--accent-rose);
+}
+
+/* Danger icon */
+.settings__danger-icon {
+  color: var(--accent-rose) !important;
+}
+
+/* About */
+.settings__about {
+  padding: var(--space-md) 0;
+}
+
+.settings__about p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.settings__about-badges {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Clear confirm */
+.settings__clear-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.settings__clear-warning {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.settings__clear-warning svg {
+  color: var(--accent-amber);
+  margin-bottom: var(--space-md);
+}
+
+.settings__clear-warning h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.settings__clear-warning p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.settings__clear-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .settings__data-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .settings__select {
+    width: 100%;
+  }
+}
